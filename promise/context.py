@@ -8,11 +8,11 @@ class Context(object):
     __slots__ = ('_parent', '_exited', '_exit_fns')
 
     def __init__(self):
+        self._exited = False
+        self._exit_fns = []  # type: List[Callable]
         self._parent = self.peek_context()
         if self._parent:
             self._parent.on_exit(self._exit)
-        self._exited = False
-        self._exit_fns = []  # type: List[Callable]
 
     def push_context(self):
         # if self._trace:
