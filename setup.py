@@ -50,6 +50,6 @@ setup(
         'test': tests_require,
     },
     install_requires=[
-        'typing', 'six'
+        "typing; python_version < '3.6'", 'six'
     ],
     tests_require=tests_require, )
